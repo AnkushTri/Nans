@@ -36,12 +36,25 @@ export function Gallery() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   return (
-    <section ref={ref} aria-labelledby="frames-title" className="overflow-hidden bg-gradient-to-b from-paper via-[#FFE6B8] to-paper px-6 py-32 md:px-16">
-      <div id="frames-title"><SectionHeading eyebrow="08 · 12" title="Nans, in frames" /></div>
-      <p className="mt-4 text-center font-script text-2xl text-ink/70">Every one of these, I'd frame.</p>
+    <section
+      ref={ref}
+      aria-labelledby="frames-title"
+      className="overflow-hidden bg-gradient-to-b from-paper via-[#FFE6B8] to-paper px-6 py-32 md:px-16"
+    >
+      <div id="frames-title">
+        <SectionHeading eyebrow="08 · 12" title="Nans, in frames" />
+      </div>
+      <p className="mt-4 text-center font-script text-2xl text-ink/70">
+        Every one of these, I&rsquo;d frame.
+      </p>
       <div className="mx-auto mt-20 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
         {COLUMNS.map((c) => (
-          <Strip key={c.photos[0]} column={c} progress={scrollYProgress} reduced={reduced} />
+          <Strip
+            key={c.photos[0]}
+            column={c}
+            progress={scrollYProgress}
+            reduced={reduced}
+          />
         ))}
       </div>
     </section>
