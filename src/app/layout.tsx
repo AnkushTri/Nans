@@ -12,18 +12,38 @@ const playfair = Playfair_Display({
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 const caveat = Caveat({ subsets: ["latin"], display: "swap", variable: "--font-caveat" });
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://nans-one.vercel.app";
 const DESCRIPTION = "A Diwali letter, lit one diya at a time.";
 
 export const metadata: Metadata = {
-  title: "For Nans",
+  metadataBase: new URL(SITE_URL),
+  title: { default: "For Nans", template: "%s · For Nans" },
   description: DESCRIPTION,
+  keywords: [
+    "For Nans",
+    "Nans",
+    "Anku",
+    "Diwali letter",
+    "Diwali wishes",
+    "digital love letter",
+  ],
+  authors: [{ name: "Anku" }],
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
   openGraph: {
     title: "For Nans",
     description: DESCRIPTION,
-    images: [{ url: "/og.jpg", width: 1200, height: 630 }],
+    url: "/",
+    siteName: "For Nans",
+    locale: "en_IN",
     type: "website",
   },
-  twitter: { card: "summary_large_image", title: "For Nans", description: DESCRIPTION },
+  twitter: {
+    card: "summary_large_image",
+    title: "For Nans",
+    description: DESCRIPTION,
+  },
 };
 
 export const viewport: Viewport = { themeColor: "#FFF3DC" };
